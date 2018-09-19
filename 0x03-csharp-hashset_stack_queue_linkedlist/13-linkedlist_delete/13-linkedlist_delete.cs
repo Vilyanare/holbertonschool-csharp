@@ -16,6 +16,9 @@ class LList
             }
             count++;
         }
-        myLList.Remove(remove);
+        if (remove != null)
+        {
+            myLList.Remove(remove);
+        }
     }
 }
