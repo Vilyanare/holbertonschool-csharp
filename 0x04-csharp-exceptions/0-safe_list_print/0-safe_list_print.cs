@@ -11,12 +11,12 @@ class List
             for (int i = 0; i < n; i++)
             {
                 Console.WriteLine(myList[i]);
-                count = i;
+                count = i + 1;
             }
         }
         catch (System.ArgumentOutOfRangeException)
         {
         }
-        return count + 1;
+        return count;
     }
 }
