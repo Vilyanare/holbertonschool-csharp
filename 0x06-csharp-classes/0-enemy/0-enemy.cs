@@ -1,5 +1,7 @@
 ﻿using System;
-
+/*
+Enemies Namespace
+ */
 namespace Enemies
 {
     // Descripes Zombie class
