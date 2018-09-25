@@ -6,7 +6,7 @@ namespace MyMath.Tests
     public class MyMath_Tests
     {
         [Test]
-        public void Test1()
+        public void twoPositiveIntegers()
         {
             int result = MyMath.Operations.Add(2, 2);
             Assert.AreEqual(4, result);
