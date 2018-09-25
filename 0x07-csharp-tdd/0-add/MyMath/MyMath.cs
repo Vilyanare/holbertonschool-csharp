@@ -3,7 +3,7 @@
 namespace MyMath
 {
     /// <summary>
-    /// Represents a collection of math operations.
+    /// Provides method to add 2 integers.
     /// </summary>
     public class Operations
     {
