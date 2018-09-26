@@ -2,9 +2,10 @@ using NUnit.Framework;
 using System;
 using System.IO;
 
-namespace Tests
+namespace MyMath.Tests
 {
-    public class Tests
+    [TestFixture]
+    public class MyMath_Tests
     {
         private StringWriter sw = new StringWriter();
         private TextWriter originalOutput = Console.Out;
