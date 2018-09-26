@@ -11,5 +11,11 @@ namespace MyMath.Tests
             int result = MyMath.Operations.Add(2, 2);
             Assert.AreEqual(4, result);
         }
+        [Test]
+        public void twoNegativeIntegers()
+        {
+            int result = MyMath.Operations.Add(-2, -2);
+            Assert.AreEqual(-4, result);
+        }
     }
 }
