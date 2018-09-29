@@ -9,7 +9,7 @@ class Obj
     /// </summary>
     /// <param name="derivedType">subclass to check.</param>
     /// <param name="baseType">base type to check against.</param>
-    /// <returns><c>true<c/> if is subclass; otherwise, <c>false<c/>.</returns>
+    /// <returns><c>true</c> if is subclass; otherwise, <c>false</c>.</returns>
     public static bool IsOnlyASubclass(Type derivedType, Type baseType)
     {
         if (derivedType.BaseType == baseType)
