@@ -4,7 +4,7 @@ using System.Reflection;
 /// <summary>
 /// Provides Print method.
 /// </summary>
-class Info
+class Obj
 {
     /// <summary>
     /// Prints properties and methods of given object.
