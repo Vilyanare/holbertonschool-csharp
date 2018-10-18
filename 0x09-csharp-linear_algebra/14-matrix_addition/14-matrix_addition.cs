@@ -15,7 +15,7 @@ class MatrixMath
         int colLength = matrix1.GetLength(1);
         double [,] temp = new double [matrix1.GetLength(0), colLength];
 
-        if (colLength > 1 && length < 4)
+        if (colLength > 1 && colLength < 4)
         {
             if (matrix1.GetLength(0) == matrix2.GetLength(0) && matrix1.Length == matrix2.Length)
             {
