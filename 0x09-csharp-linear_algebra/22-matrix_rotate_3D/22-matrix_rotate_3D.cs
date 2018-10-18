@@ -1,0 +1,63 @@
+﻿using System;
+using System.Collections.Generic;
+
+class MatrixMath
+{
+    public static double[,] Rotate3D(double[,] matrix, char axis, double angle)
+    {
+        double cos = Math.Cos(angle), sin = Math.Sin(angle);
+        double[,] rot = new double[,] { {1, 0, 0}, {0, 1, 0}, {0, 0, 1} };
+        double[,] temp = new double[3,3];
+        double tempNum;
+        List<char> validAxis = new List<char>(new char[] {'x', 'y', 'z'});
+        if (!validAxis.Contains(axis))
+        {
+            return new double[,] {{-1}};
+        }
+
+        if (axis == 'x') {
+            rot[1,1] = cos;
+            rot[1,2] = -sin;
+            rot[2,1] = cos;
+            rot[2,2] = sin;
+        }
+        else if(axis == 'y') {
+            rot[0,0] = cos;
+            rot[0,2] = -sin;
+            rot[2,0] = cos;
+            rot[2,2] = sin;
+        }
+        else {
+            rot[0,0] = cos;
+            rot[0,1] = -sin;
+            rot[1,0] = cos;
+            rot[1,1] = sin;
+        }
+        for (int i = 0; i < rot.GetLength(0); i++)
+        {
+            for (int k = 0; k < rot.GetLength(1); k++)
+            {
+                Console.Write("{0} ", rot[i, k]);
+            }
+            Console.WriteLine();
+        }
+
+        if (matrix.GetLength(0) == 3 && matrix.GetLength(1) == 3)
+        {
+            for (int i = 0; i < temp.GetLength(0); i++)
+            {
+                for (int j = 0; j < temp.GetLength(1); j++)
+                {
+                    tempNum = 0;
+                    for (int k = 0; k < temp.GetLength(0); k++)
+                    {
+                        tempNum += rot[i,k] * matrix[k,j];
+                    }
+                    temp[i,j] = Math.Round(tempNum, 2);
+                }
+            }
+            return temp;
+        }
+        return new double[,] {{0}};
+    }
+}
