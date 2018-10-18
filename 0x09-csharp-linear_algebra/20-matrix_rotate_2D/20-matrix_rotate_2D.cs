@@ -13,7 +13,7 @@ class MatrixMath
     public static double[,] Rotate2D(double[,] matrix, double angle)
     {
         double sin = Math.Sin(angle), cos = Math.Cos(angle);
-        double[,] rot = new double[,] { {cos, -sin}, {sin, cos} };
+        double[,] rot = new double[,] { {cos, sin}, {-sin, cos} };
         double[,] temp = new double[2,2];
         double tempNum;
         if (matrix.GetLength(0) == 2 && matrix.GetLength(1) == 2)
