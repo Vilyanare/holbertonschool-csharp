@@ -21,10 +21,10 @@ class MatrixMath
             {
                 for (int k = 0; k < colLength; k++)
                 {
-                    temp[i, k] = matrix[i ,k] * scalar;
+                    temp[i, k] = Math.Round(matrix[i ,k] * scalar, 2);
                 }
             }
-            return Math.Round(temp, 2);
+            return temp;
         }
         return new double[,] {{-1}};
     }
