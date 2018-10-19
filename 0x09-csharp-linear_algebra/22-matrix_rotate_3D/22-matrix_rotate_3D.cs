@@ -18,40 +18,31 @@ class MatrixMath
         if (axis == 'x') {
             rot[1,1] = cos;
             rot[1,2] = -sin;
-            rot[2,1] = cos;
-            rot[2,2] = sin;
+            rot[2,1] = sin;
+            rot[2,2] = cos;
         }
         else if(axis == 'y') {
             rot[0,0] = cos;
             rot[0,2] = -sin;
-            rot[2,0] = cos;
-            rot[2,2] = sin;
+            rot[2,0] = sin;
+            rot[2,2] = cos;
         }
         else {
             rot[0,0] = cos;
             rot[0,1] = -sin;
-            rot[1,0] = cos;
-            rot[1,1] = sin;
+            rot[1,0] = sin;
+            rot[1,1] = cos;
         }
-        for (int i = 0; i < rot.GetLength(0); i++)
-        {
-            for (int k = 0; k < rot.GetLength(1); k++)
-            {
-                Console.Write("{0} ", rot[i, k]);
-            }
-            Console.WriteLine();
-        }
-
         if (matrix.GetLength(0) == 3 && matrix.GetLength(1) == 3)
         {
-            for (int i = 0; i < temp.GetLength(0); i++)
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                for (int j = 0; j < temp.GetLength(1); j++)
+                for (int j = 0; j < matrix.GetLength(0); j++)
                 {
                     tempNum = 0;
-                    for (int k = 0; k < temp.GetLength(0); k++)
+                    for (int k = 0; k < matrix.GetLength(0); k++)
                     {
-                        tempNum += rot[i,k] * matrix[k,j];
+                        tempNum += rot[j,k] * matrix[i,k];
                     }
                     temp[i,j] = Math.Round(tempNum, 2);
                 }
