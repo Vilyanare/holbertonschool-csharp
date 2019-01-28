@@ -60,7 +60,7 @@ class Door : Base, IInteractive
     /// </summary>
     public void Interact()
     {
-        Console.WriteLine($"You try to open the {name}. It's locked");
+        Console.WriteLine($"You try to open the {name}. It's locked.");
     }
 }
 
@@ -118,10 +118,10 @@ class Decoration : Base, IInteractive, IBreakable
     {
         durability--;
         if (durability > 0)
-            Console.WriteLine($"You hit the {name}. It cracks");
+            Console.WriteLine($"You hit the {name}. It cracks.");
         if (durability == 0)
-            Console.WriteLine($"You smash the {name}. What a mess");
+            Console.WriteLine($"You smash the {name}. What a mess.");
         if (durability < 0)
-            Console.WriteLine($"The {name} is already broken");
+            Console.WriteLine($"The {name} is already broken.");
     }
 }

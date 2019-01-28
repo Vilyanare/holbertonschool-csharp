@@ -161,7 +161,7 @@ class Key : Base, ICollectable
         }
         else
         {
-            Console.WriteLine($"You already picked up the {name}.");
+            Console.WriteLine($"You have already picked up the {name}.");
         }
     }
 }
