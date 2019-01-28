@@ -74,16 +74,16 @@ class Decoration : Base, IInteractive, IBreakable
     /// <summary>
     /// Constructor for Decoration class.
     /// </summary>
-    /// <param name="Name">Name of the decoration.</param>
-    /// <param name="Durability">Durability of the decoration.</param>
-    /// <param name="IsQuestItem">If the decoration is a quest item.</param>
-    public Decoration(string Name = "Decoration", int Durability = 1, bool IsQuestItem = false)
+    /// <param name="name">Name of the decoration.</param>
+    /// <param name="durability">Durability of the decoration.</param>
+    /// <param name="isQuestItem">If the decoration is a quest item.</param>
+    public Decoration(string name = "Decoration", int durability = 1, bool isQuestItem = false)
     {
-        if (Durability < 1)
+        if (durability < 1)
             throw new Exception("Durability must be greater than 0");
-        isQuestItem = IsQuestItem;
-        durability = Durability;
-        name = Name;
+        this.isQuestItem = isQuestItem;
+        this.durability = durability;
+        this.name = name;
     }
 
     /// <summary>
