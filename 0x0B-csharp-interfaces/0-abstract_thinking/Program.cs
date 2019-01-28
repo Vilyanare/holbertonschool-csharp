@@ -4,7 +4,7 @@ Abstract base class
  */
 abstract class Base
 {
-    public string name;
+    public string name = null;
 
     /// <summary>
     /// Description of the class
