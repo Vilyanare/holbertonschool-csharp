@@ -1,11 +1,25 @@
 ﻿using System;
 
+/// <summary>
+/// Delegate for altering health of player
+/// </summary>
+/// <param name="amount">How much to update the health</param>
+public delegate void CaluclateHealth(float amount);
+
+/// <summary>
+/// Class containing the methods to interact with a player
+/// </summary>
 class Player
 {
     private string name;
     private float maxHp;
     private float hp;
 
+    /// <summary>
+    /// Constructor for player class
+    /// </summary>
+    /// <param name="name">Name of the player. default 'Player'</param>
+    /// <param name="maxHp">Max HP of the player. default 100</param>
     public Player(string name = "Player", float maxHp = 100f)
     {
         this.name = name;
@@ -21,25 +35,33 @@ class Player
         this.hp = this.maxHp;
     }
 
+    /// <summary>
+    /// Method that prints health of player.
+    /// </summary>
     public void PrintHealth()
     {
         System.Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
-}
 
+    /// <summary>
+    /// Removes health of player
+    /// </summary>
+    /// <param name="damage">How much health to remove</param>
+    public void TakeDamage(float damage)
+    {
+        System.Console.WriteLine($"{name} takes {damage} damage!");
+        if (damage < 0)
+            damage = 0;
+    }
 
-
-public delegate void CaluclateHealth(float amount);
-
-public void TakeDamage(float damage)
-{
-    System.Console.WriteLine($"{name} takes damage!");
-    if (damage < 0)
-        damage = 0;
-}
-public void HealDamage(float heal)
-{
-    System.Console.WriteLine($"{name} heals {heal} HP!");
-    if (heal < 0)
-        heal = 0;
+    /// <summary>
+    /// Adds health of player
+    /// </summary>
+    /// <param name="heal">How much health to add</param>
+    public void HealDamage(float heal)
+    {
+        System.Console.WriteLine($"{name} heals {heal} HP!");
+        if (heal < 0)
+            heal = 0;
+    }
 }
