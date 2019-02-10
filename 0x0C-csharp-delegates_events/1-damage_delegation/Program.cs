@@ -49,9 +49,9 @@ class Player
     /// <param name="damage">How much health to remove</param>
     public void TakeDamage(float damage)
     {
-        System.Console.WriteLine($"{name} takes {damage} damage!");
         if (damage < 0)
             damage = 0;
+        System.Console.WriteLine($"{name} takes {damage} damage!");
     }
 
     /// <summary>
@@ -60,8 +60,8 @@ class Player
     /// <param name="heal">How much health to add</param>
     public void HealDamage(float heal)
     {
-        System.Console.WriteLine($"{name} heals {heal} HP!");
         if (heal < 0)
             heal = 0;
+        System.Console.WriteLine($"{name} heals {heal} HP!");
     }
 }
