@@ -11,12 +11,18 @@ public delegate void CalculateHealth(float amount);
 /// </summary>
 /// <param name="baseValue">Base value to modify</param>
 /// <param name="modifier">How much to modify the base by</param>
-public delegate void CalculateModifier(float baseValue, Modifier modifier);
+public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
-enum Modifier
+/// <summary>
+/// Enum that decides the modifier to the damage value
+/// </summary>
+public enum Modifier
 {
+    /// <summary>Half strength attack</summary>
     Weak,
+    /// <summary>Normal attack</summary>
     Base,
+    /// <summary>1.5 times stronger attack</summary>
     Strong
 };
 
@@ -103,11 +109,10 @@ class Player
     /// <returns>Float of the modified value</returns>
     public float ApplyModifier(float baseValue, Modifier modifier)
     {
-        if (modifier == Weak)
+        if (modifier == Modifier.Weak)
             return baseValue / 2;
-        if (modifier == Base)
-            return baseValue;
-        if (modifier == Strong)
-            return baseValue * 1.5;
+        if (modifier == Modifier.Strong)
+            return baseValue * 1.5f;
+        return baseValue;
     }
 }

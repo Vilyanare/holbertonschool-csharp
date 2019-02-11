@@ -4,7 +4,7 @@
 /// Delegate for altering health of player
 /// </summary>
 /// <param name="amount">How much to update the health</param>
-public delegate void CaluclateHealth(float amount);
+public delegate void CalculateHealth(float amount);
 
 /// <summary>
 /// Class containing the methods to interact with a player
