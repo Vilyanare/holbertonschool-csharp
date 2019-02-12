@@ -36,7 +36,7 @@ class Player
     private float hp;
     private string status;
 
-    public event CurrentHPArgs HPCheck;
+    public EventHandler<CurrentHPArgs> HPCheck;
 
     /// <summary>
     /// Constructor for player class
@@ -105,7 +105,7 @@ class Player
             hp = maxHp;
         else
             hp = newHp;
-        HPCheck(hp);
+        HPCheck(this, new CurrentHPArgs(hp));
     }
 
     /// <summary>
@@ -123,25 +123,38 @@ class Player
         return baseValue;
     }
 
+    /// <summary>
+    ///Method that prints a message based on how much health is left
+    /// </summary>
+    /// <param name="sender">Object that is calling this method</param>
+    /// <param name="e">Arguments</param>
     private void CheckStatus(object sender, CurrentHPArgs e)
     {
-        if (hp == maxHp)
+        if (e.currentHp == maxHp)
             status = $"{name} is in perfect health!";
-        else if (hp >= maxHp / 2)
+        else if (e.currentHp >= maxHp / 2)
             status = $"{name} is doing well!";
-        else if (hp >= maxHp / 4)
+        else if (e.currentHp >= maxHp / 4)
             status = $"{name} isn't doing too great...";
-        else if (hp > 0)
+        else if (e.currentHp > 0)
             status = $"{name} needs help!";
         else
             status= $"{name} is knocked out!";
+        System.Console.WriteLine(status);
     }
 }
 
+/// <summary>
+/// EventArgs class that holds currenthp
+/// </summary>
 class CurrentHPArgs : EventArgs
 {
     public readonly float currentHp;
 
+    /// <summary>
+    /// Assigns newHp to currentHp
+    /// </summary>
+    /// <param name="newHp">new hp value</param>
     public CurrentHPArgs(float newHp)
     {
         this.currentHp = newHp;
