@@ -143,6 +143,11 @@ class Player
         System.Console.WriteLine(status);
     }
 
+    /// <summary>
+    /// If HP is below a quarter of max hp then warns
+    /// </summary>
+    /// <param name="sender">Object calling this method</param>
+    /// <param name="e">Arguments containing current hp</param>
     private void HPValueWarning(object sender, CurrentHPArgs e)
     {
         if (e.currentHp == 0)
@@ -151,6 +156,10 @@ class Player
             System.Console.WriteLine("Health is low!");
     }
 
+    /// <summary>
+    /// Adds HPValueWarning method to HPCheck event if below 1/4 hp
+    /// </summary>
+    /// <param name="e">Arguments with current hp</param>
     private void OnCheckStatus(CurrentHPArgs e)
     {
         if (e.currentHp < maxHp / 4)
